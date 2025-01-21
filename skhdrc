@@ -1,0 +1,119 @@
+#####################
+# mod1: rcmd + lalt #
+#####################
+
+# move focus with dvorak ESDF
+rcmd + lalt - o : yabai -m window --focus west
+rcmd + lalt - 0x2F : yabai -m window --focus north
+rcmd + lalt - u : yabai -m window --focus east
+rcmd + lalt - e : yabai -m window --focus south
+
+# focus displays with h/l
+rcmd + lalt - h : yabai -m display --focus prev
+rcmd + lalt - l : yabai -m display --focus next
+
+# focus space with arrows
+rcmd + lalt - right : yabai -m space --focus next 
+rcmd + lalt - left : yabai -m space --focus prev 
+
+rcmd + lalt - 0x12 : yabai -m space --focus 1
+rcmd + lalt - 0x13 : yabai -m space --focus 2
+rcmd + lalt - 0x14 : yabai -m space --focus 3
+rcmd + lalt - 0x15 : yabai -m space --focus 4
+rcmd + lalt - 0x17 : yabai -m space --focus 5
+rcmd + lalt - 0x16 : yabai -m space --focus 6
+rcmd + lalt - 0x1A : yabai -m space --focus 7
+rcmd + lalt - 0x1C : yabai -m space --focus 8
+rcmd + lalt - 0x19 : yabai -m space --focus 9
+
+# balance windows
+rcmd + lalt - b : yabai -m space --balance
+
+# focus "master" window
+rcmd + lalt - m : yabai -m window --focus first
+
+# swap with "master" window
+rcmd + lalt - return : yabai -m window --swap first
+
+# float and sticky
+rcmd + lalt - t : yabai -m window --toggle float
+rcmd + lalt - s : yabai -m window --toggle sticky
+
+# toggle how node is split
+rcmd + lalt - 0x1B : yabai -m window --toggle split
+
+
+#####################
+# mod2: rcmd + ralt #
+#####################
+
+# warp with dvorak ESDF
+rcmd + ralt - o : yabai -m window --warp west
+rcmd + ralt - 0x2F : yabai -m window --warp north
+rcmd + ralt - u : yabai -m window --warp east
+rcmd + ralt - e : yabai -m window --warp south
+
+# shout out this guy https://github.com/koekeishiya/yabai/issues/200#issuecomment-1655195085
+# resize with HJKL
+rcmd + ralt - h : yabai -m window --resize right:-40:0 2> /dev/null || yabai -m window --resize left:-40:0 2> /dev/null
+rcmd + ralt - j : yabai -m window --resize bottom:0:40 2> /dev/null || yabai -m window --resize top:0:40 2> /dev/null
+rcmd + ralt - k : yabai -m window --resize bottom:0:-40 2> /dev/null || yabai -m window --resize top:0:-40 2> /dev/null
+rcmd + ralt - l : yabai -m window --resize right:40:0 2> /dev/null || yabai -m window --resize left:40:0 2> /dev/null
+
+# launch terminal
+rcmd + ralt - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance --instance-group kitty -d ~
+# separate command to launch a separate instance of kitty running btop
+# we dont want focus jumping around when closing the last terminal on a space
+rcmd + ralt - b : /Applications/kitty.app/Contents/MacOS/kitty --single-instance --title btop --instance-group btop btop
+
+# move window to other display and focus
+rcmd + ralt - right : yabai -m window --display next; yabai -m display --focus next
+rcmd + ralt - left : yabai -m window --display prev; yabai -m display --focus prev
+
+# mod2 + number moves active window to that space
+rcmd + ralt - 0x12 : yabai -m window --space 1
+rcmd + ralt - 0x13 : yabai -m window --space 2
+rcmd + ralt - 0x14 : yabai -m window --space 3
+rcmd + ralt - 0x15 : yabai -m window --space 4
+rcmd + ralt - 0x17 : yabai -m window --space 5
+rcmd + ralt - 0x16 : yabai -m window --space 6
+rcmd + ralt - 0x1A : yabai -m window --space 7
+rcmd + ralt - 0x1C : yabai -m window --space 8
+rcmd + ralt - 0x19 : yabai -m window --space 9
+
+# mod2 + c is the same as cmd shift q because im used to xmonad
+rcmd + ralt - c : skhd -k 'cmd + shift - w'
+
+# zoom active window to parent node
+rcmd + ralt - m : yabai -m window --toggle zoom-parent
+
+#######################
+# mod3: rcmd + lshift #
+#######################
+
+# swap em instead of warp em
+rcmd + lshift - o : yabai -m window --swap west
+rcmd + lshift - 0x2F : yabai -m window --swap north
+rcmd + lshift - u : yabai -m window --swap east
+rcmd + lshift - e : yabai -m window --swap south
+
+# launch raycast, lazily
+rcmd + lshift - l : skhd -k 'alt - space'
+
+#########################################
+# mod4 - the weird stuff: rcmd + rshift #
+#########################################
+
+# "toggle" opacity
+rcmd + rshift - o : yabai -m window --opacity 1.0
+rcmd + rshift - t : yabai -m window --opacity 0.4
+
+# force sleep/lock
+rcmd + rshift - s : osascript -e 'tell application "Finder" to sleep'
+
+# minus destroys space, equals creates space
+rcmd + rshift - 0x1B : yabai -m space --destroy
+rcmd + rshift - 0x18 : yabai -m space --create
+
+# temporary - make room for sketchybar
+rcmd + rshift - f : yabai -m config external_bar all:20:0
