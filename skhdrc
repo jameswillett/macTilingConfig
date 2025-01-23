@@ -3,44 +3,44 @@
 #####################
 
 # move focus with dvorak ESDF
-rcmd + lalt - o : yabai -m window --focus west
-rcmd + lalt - 0x2F : yabai -m window --focus north
-rcmd + lalt - u : yabai -m window --focus east
-rcmd + lalt - e : yabai -m window --focus south
+rcmd - o : yabai -m window --focus west
+rcmd - 0x2F : yabai -m window --focus north
+rcmd - u : yabai -m window --focus east
+rcmd - e : yabai -m window --focus south
 
 # focus displays with h/l
-rcmd + lalt - h : yabai -m display --focus prev
-rcmd + lalt - l : yabai -m display --focus next
+rcmd - h : yabai -m display --focus prev
+rcmd - l : yabai -m display --focus next
 
 # focus space with arrows
-rcmd + lalt - right : yabai -m space --focus next 
-rcmd + lalt - left : yabai -m space --focus prev 
+rcmd - right : yabai -m space --focus next 
+rcmd - left : yabai -m space --focus prev 
 
-rcmd + lalt - 0x12 : yabai -m space --focus 1
-rcmd + lalt - 0x13 : yabai -m space --focus 2
-rcmd + lalt - 0x14 : yabai -m space --focus 3
-rcmd + lalt - 0x15 : yabai -m space --focus 4
-rcmd + lalt - 0x17 : yabai -m space --focus 5
-rcmd + lalt - 0x16 : yabai -m space --focus 6
-rcmd + lalt - 0x1A : yabai -m space --focus 7
-rcmd + lalt - 0x1C : yabai -m space --focus 8
-rcmd + lalt - 0x19 : yabai -m space --focus 9
+rcmd - 0x12 : yabai -m space --focus 1
+rcmd - 0x13 : yabai -m space --focus 2
+rcmd - 0x14 : yabai -m space --focus 3
+rcmd - 0x15 : yabai -m space --focus 4
+rcmd - 0x17 : yabai -m space --focus 5
+rcmd - 0x16 : yabai -m space --focus 6
+rcmd - 0x1A : yabai -m space --focus 7
+rcmd - 0x1C : yabai -m space --focus 8
+rcmd - 0x19 : yabai -m space --focus 9
 
 # balance windows
-rcmd + lalt - b : yabai -m space --balance
+rcmd - b : yabai -m space --balance
 
 # focus "master" window
-rcmd + lalt - m : yabai -m window --focus first
+rcmd - m : yabai -m window --focus first
 
 # swap with "master" window
-rcmd + lalt - return : yabai -m window --swap first
+rcmd - return : yabai -m window --swap first
 
 # float and sticky
-rcmd + lalt - t : yabai -m window --toggle float
-rcmd + lalt - s : yabai -m window --toggle sticky
+rcmd - t : yabai -m window --toggle float
+rcmd - s : yabai -m window --toggle sticky
 
 # toggle how node is split
-rcmd + lalt - 0x1B : yabai -m window --toggle split
+rcmd - 0x1B : yabai -m window --toggle split
 
 
 #####################
@@ -88,32 +88,32 @@ rcmd + ralt - c : skhd -k 'cmd + shift - w'
 rcmd + ralt - m : yabai -m window --toggle zoom-parent
 
 #######################
-# mod3: rcmd + lshift #
+# mod3: rcmd + rshift #
 #######################
 
 # swap em instead of warp em
-rcmd + lshift - o : yabai -m window --swap west
-rcmd + lshift - 0x2F : yabai -m window --swap north
-rcmd + lshift - u : yabai -m window --swap east
-rcmd + lshift - e : yabai -m window --swap south
+rcmd + rshift - o : yabai -m window --swap west
+rcmd + rshift - 0x2F : yabai -m window --swap north
+rcmd + rshift - u : yabai -m window --swap east
+rcmd + rshift - e : yabai -m window --swap south
 
 # launch raycast, lazily
-rcmd + lshift - l : skhd -k 'alt - space'
+rcmd + rshift - l : skhd -k 'alt - space'
 
 #########################################
 # mod4 - the weird stuff: rcmd + rshift #
 #########################################
 
 # "toggle" opacity
-rcmd + rshift - o : yabai -m window --opacity 1.0
-rcmd + rshift - t : yabai -m window --opacity 0.4
+rcmd + ralt + rshift - o : yabai -m window --opacity 1.0
+rcmd + ralt + rshift - t : yabai -m window --opacity 0.4
 
 # force sleep/lock
-rcmd + rshift - s : osascript -e 'tell application "Finder" to sleep'
+rcmd + ralt + rshift - s : osascript -e 'tell application "Finder" to sleep'
 
 # minus destroys space, equals creates space
-rcmd + rshift - 0x1B : yabai -m space --destroy
-rcmd + rshift - 0x18 : yabai -m space --create
+rcmd + ralt + rshift - 0x1B : yabai -m space --destroy
+rcmd + ralt + rshift - 0x18 : yabai -m space --create
 
 # temporary - make room for sketchybar
-rcmd + rshift - f : yabai -m config external_bar all:20:0
+rcmd + ralt + rshift - f : yabai -m config external_bar all:20:0
