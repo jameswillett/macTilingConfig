@@ -8,6 +8,10 @@ rcmd - 0x2F : yabai -m window --focus north
 rcmd - u : yabai -m window --focus east
 rcmd - e : yabai -m window --focus south
 
+# move focus thru stack
+rcmd - j : yabai -m window --focus next 2> /dev/null || yabai -m window --focus first 2> /dev/null
+rcmd - k : yabai -m window --focus prev 2> /dev/null || yabai -m window --focus last 2> /dev/null
+
 # focus displays with h/l
 rcmd - h : yabai -m display --focus prev
 rcmd - l : yabai -m display --focus next
